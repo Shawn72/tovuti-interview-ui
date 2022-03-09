@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<section class="content container-fluid">  
+<br />
+<div class="row">
+    <div class="col-md-6 col-sm-6 col-lg-3">
+        <div class="dash-widget clearfix card-box">
+            <span class="dash-widget-icon"><i class="fa fa-university" aria-hidden="true"></i></span>
+            <div class="dash-widget-info">
+                <h3>@TempData["totalSales"]</h3>
+                <a href="#"><span style="color: aliceblue"> Total Sales</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-lg-3">
+        <div class="dash-widget clearfix card-box">
+            <span class="dash-widget-icon"><i class="fa fa-pencil m-r-5"></i></span>
+            <div class="dash-widget-info">
+            @*    <h3>@Session["totalCommission"]</h3>*@
+                <a href="#"><span style="color: aliceblue">Customers</span></a>
+            </div>
+        </div>
+    </div>
+
+     <div class="col-md-6 col-sm-6 col-lg-3">
+        <div class="dash-widget clearfix card-box">
+            <span class="dash-widget-icon"><i class="fa fa-money m-r-5"></i></span>
+            <div class="dash-widget-info">
+            @*    <h3>@Session["totalCommission"]</h3>*@
+                <a href="#"><span style="color: aliceblue">Payments</span></a>
+            </div>
+        </div>
+    </div>
+
+     <div class="col-md-6 col-sm-6 col-lg-3">
+        <div class="dash-widget clearfix card-box">
+            <span class="dash-widget-icon"><i class="fa fa-pencil m-r-5"></i></span>
+            <div class="dash-widget-info">
+            @*    <h3>@Session["totalCommission"]</h3>*@
+                <a href="#"><span style="color: aliceblue">Customer Accounts</span></a>
+            </div>
+        </div>
+    </div>
+
+  
+</div>
+   
+<div class="panel panel-default" style="margin-top:10px;">
+    <div class="modalspinner" style="display: none">
+        <div class="centerspinner">
+            <img alt="" src="/loaders/spinner.gif" />
+            Please wait...data loading
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong> Reporting</strong>
+                    <span id="feedbackMsg" style="display: none"></span><br />
+                        <div class="form-body">
+                                <div class="table-container">
+                                    show some reports here ......
+                                   
+                                </div>
+                            </div>    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
