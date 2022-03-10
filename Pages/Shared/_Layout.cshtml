@@ -87,34 +87,36 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
+                    <li class="active"><a  class="nav-link text-dark"  asp-controller="Home" asp-action="Index"><i class="glyphicon glyphicon-home"></i> <span>Dashboard</span></a></li>
 
-                    <li class="active"><a  class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="glyphicon glyphicon-home"></i> <span>Dashboard</span></a></li>
+                    @if (signInMagr.IsSignedIn(User))
+                     {
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-folder fa-fw"></i> <span> Customer</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RegisterCustomer"><span> Register Customer </span> </a> </li> 
+                                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CustomersList"><span> All Customers </span> </a> </li>   
+                                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EnterCustomerAccounts"><span> Add Customer Account </span> </a> </li>
+                            </ul>
+                        </li>
 
-                    @if (signInMagr.IsSignedIn(User) && User.IsInRole("Admin"))
-                    {
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-folder fa-fw"></i> <span> Customer</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RegisterCustomer"><span> Register Customer </span> </a> </li> 
-                            <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ViewAllCustomers"><span> All Customers </span> </a> </li>   
-                        </ul>
-                    </li>
-                    }
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-folder fa-fw"></i> <span> Sales Transactions</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EnterSale"><span> Make Sale</span> </a> </li>
-                            <li> <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="EnterPayment"><span> Make Payment</span> </a> </li>
-                            <li> <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="ViewInvoices"><span> Invoices</span> </a> </li>
-                            @if (signInMagr.IsSignedIn(User) && User.IsInRole("Admin"))
-                            {                               
-                            }  
-                            @if ((await authorizationService.AuthorizeAsync(User, "writepolicy")).Succeeded)
-                            {
-                            }
-                        </ul>
-                    </li>                   
-
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-folder fa-fw"></i> <span> Sales Transactions</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EnterSale"><span> Sale Product</span> </a> </li>
+                                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GetSalesList"><span> Sales List</span> </a> </li>
+                                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GetInvoicesList"><span> Make Payment</span> </a> </li>
+                                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GetInvoicesList"><span> Invoices List</span> </a> </li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-folder fa-fw"></i> <span> Statements</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CustomersStatemtList"><span> Generate Customer Statement</span> </a> </li>
+                            </ul>
+                        </li>
+                     }
+                    @*Role based authorization of some views for admins only*@
                     @if (signInMagr.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
                         <li class="submenu">
@@ -126,7 +128,6 @@
                         </li>
                     }
                     else{}
-
                 </ul>
             </div>
         </div>

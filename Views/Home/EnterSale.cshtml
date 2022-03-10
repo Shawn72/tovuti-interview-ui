@@ -1,0 +1,59 @@
+﻿@model TovutiUI.Models.DropdownListModel
+
+@{
+    ViewData["Title"] = "EnterSale";
+    Layout = "~/Pages/Shared/_Layout.cshtml";}
+
+<section class="content container-fluid">       
+    <div class="portlet-body">
+        <div class="form-body">  
+            <div class="table-container">  
+                <span class="caption-subject font-green sbold uppercase">INITIATE SALE PAGE</span><br />   
+                
+                <form class="form_make_sale_to_customer">
+                    <div class="form-group">
+                        <label>Customer</label>
+                        <select id="ddlCustomer" class="form-control customerSlDropdown select2"  name="customer_id" asp-items="Model.List_Customers">
+                            <option value="0" disabled="disabled" > --- select customer --- </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Product Amount</label>
+                        <input class="form-control floating numericsonly" type="number" name ="product_amount" placeholder="enter product amount" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input class="form-control numericsonly" type="number" name ="price" placeholder="enter price" />
+                    </div> 
+
+                    <div class="form-group">
+                        <label>Payment Mode</label>
+                        <select class="form-control ddlpayment_mode select2"  data_live_search="true" name="payment_mode" >
+                            <option value="0"  disabled selected > --- select mode --- </option> 
+                            <option value="Mobile Money" > Mobile Money </option>  
+                            <option value="Bank Transfer" > Bank Transafer </option>  
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Transaction Date </label>
+                        <input class="form-control" type="date" name ="transaction_date" placeholder="transaction date" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Unit of Measurement</label>
+                        <input class="form-control" type="text" name ="unit_of_measurement" placeholder="enter unit_of_measurement eg. KES, DOLLAR, POUNDS" />
+                    </div>  
+
+                     <div class="form-group">
+                        <input type="submit" value="Add Sale" class="btn btn-primary btnAddSale" />
+                    </div>
+               </form>
+
+              
+             </div>
+         </div>      
+    </div>
+</section>

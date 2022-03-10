@@ -3,7 +3,7 @@
     ViewData["Title"] = "RegisterCustomer";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
-   
+
 <section class="content container-fluid">  
     <div class="portlet light portlet-fit portlet-datatable bordered">
         <div class="portlet-title">
@@ -53,7 +53,9 @@
                                         <option value="30"   > 30 Days </option>  
                                         <option value="60"   > 60 Days </option>  
                                         <option value="90"   > 90 Days </option>  
-                                    </select>                        </div                       
+                                    </select>
+                             </div
+
                             <div class="form-group">
                                 <input type="submit" value="Register Customer" class="btn btn-primary btnRegCustomer" />
                                 <a class="btn btn-primary pull-right" asp-controller="Home" asp-action="Index">  Back </a>

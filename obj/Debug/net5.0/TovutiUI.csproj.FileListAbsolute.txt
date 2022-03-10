@@ -137,7 +137,18 @@ D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Account
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Account\ResetPasswordConfirmation.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\CreateInvoicePage.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\CustomersList.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\CustomersStatemtList.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\EnterCustomerAccounts.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\EnterSale.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\GetCustomerAccounts.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\GetCustomerStatement.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\GetInvoicesList.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\GetSalesList.cshtml.g.cs
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\PaymentPage.cshtml.g.cs
+D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\RegisterCustomer.cshtml.g.cs
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\TovutiUI.RazorTargetAssemblyInfo.cache
@@ -148,4 +159,3 @@ D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\TovutiUI.dll
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\ref\TovutiUI.dll
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\TovutiUI.pdb
 D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\TovutiUI.genruntimeconfig.cache
-D:\very@Personal\Interviews\Tovuti\TovutiUI\obj\Debug\net5.0\Razor\Views\Home\RegisterCustomer.cshtml.g.cs

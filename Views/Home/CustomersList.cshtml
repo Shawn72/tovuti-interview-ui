@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TovutiUI.Entities.CustomerDetails>
+
+@{
+    ViewData["Title"] = "CustomersList";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<p> <a asp-controller="Home" asp-action="RegisterCustomer">Create New</a></p>
+<div class="portlet light portlet-fit portlet-datatable bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-settings font-green"></i>
+            <span class="caption-subject font-green sbold uppercase"> All Customers List </span>
+        </div>
+    </div>
+    <br />
+     
+    <div class="portlet-body">
+          <div class="form-body">
+              <div class="table-container">
+                  <div class="feedbackMsg"></div>
+                    <div class="scroll">
+                        <table class="table table-responsive tbl_datatable" id="tbl_customers_all">
+                            <thead>
+                                <tr>
+                                    <th style="display:none"> Id  </th>
+                                    <th> First Name </th>
+                                    <th> Middle Name </th>
+                                    <th> Last Name  </th>
+                                    <th> Id Number </th>
+                                    <th> Credit Limit </th>
+                                    <th> Payment Terms </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model) {
+                                        <tr>
+                                            <td style="display:none"> @Html.DisplayFor(modelItem => item.id) </td>
+                                            <td> @Html.DisplayFor(modelItem => item.firstname) </td>
+                                            <td> @Html.DisplayFor(modelItem => item.middlename) </td>
+                                            <td> @Html.DisplayFor(modelItem => item.lastname) </td>
+                                            <td> @Html.DisplayFor(modelItem => item.id_number)</td>
+                                            <td> @Html.DisplayFor(modelItem => item.credit_limit)</td>
+                                            <td> @Html.DisplayFor(modelItem => item.payment_terms) </td>
+                                            <td>
+                                                @Html.ActionLink("View Accounts", "GetCustomerAccounts", new {  id=item.id  }) |
+                                            </td>
+                                        </tr>
+                                }
+                            </tbody>
+                        </table>
+                     </div>
+              </div>
+          </div>
+    </div>
+</div>

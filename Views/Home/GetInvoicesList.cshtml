@@ -1,0 +1,84 @@
+﻿@model IEnumerable<TovutiUI.Entities.Invoices>
+@using System.Globalization;
+
+@{
+    ViewData["Title"] = "GetInvoicesList";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    CultureInfo culture = new CultureInfo("en-US");
+}
+<div class="portlet light portlet-fit portlet-datatable bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-settings font-green"></i>
+            <span class="caption-subject font-green sbold uppercase"> All Invoices List </span>
+        </div>
+    </div>
+    <br />
+     
+    <div class="portlet-body">
+        <p><a asp-controller="Home" asp-action="Index">Back</a></p>
+          <div class="form-body">
+              <div class="table-container">
+                  <div class="feedbackMsg"></div>
+                    <div class="scroll">
+                        <table class="table table-responsive tbl_datatable" id="tbl_invoices_all">
+                            <thead>
+                                <tr>
+                                    <th> id </th>
+                                    <th> Payment Terms  </th>
+                                    <th> Transaction Date   </th>
+                                    <th> Due Date </th>
+                                    <th> Amount </th>
+                                    <th> Customer Id </th>
+                                    <th> Sale Transaction Id </th>
+                                    <th> Fully Paid  </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model) {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.id)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.payment_terms)
+                                            </td>
+                                            <td>
+                                                @DateTime.Parse(item.transaction_date.ToString("dd/MM/yyyy"), culture.DateTimeFormat).ToShortDateString()
+                                            </td>
+                                            <td> 
+                                                @DateTime.Parse(item.due_date.ToString("dd/MM/yyyy"), culture.DateTimeFormat).ToShortDateString()
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.amount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.customer_id)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.sale_trx_id)
+                                            </td>
+                                            <td>               
+                                                @if(item.fully_paid == true)
+                                                {
+                                                    <label class="alert-info">Fully Settled</label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="alert-danger">Unsettled</label>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Make Payment", "PaymentPage", new {  id=item.id  })               
+                                            </td>
+                                        </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+                        

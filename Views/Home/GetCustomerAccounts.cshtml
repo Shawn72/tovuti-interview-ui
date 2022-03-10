@@ -1,0 +1,76 @@
+﻿@model IEnumerable<TovutiUI.Entities.CustomerAccounts>
+
+@{
+    ViewData["Title"] = "GetCustomerAccounts";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="content container-fluid"> 
+<div class="portlet light portlet-fit portlet-datatable bordered">
+    <p> <a asp-controller="Home" asp-action="EnterCustomerAccounts">Create New</a> </p>
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-settings font-green"></i>
+            <span class="caption-subject font-green sbold uppercase"> Customer Accounts ( Filter By Customer ) </span>
+        </div>
+    </div>
+    <br />
+     
+    <div class="portlet-body">
+          <div class="form-body">
+              <div class="table-container">
+                  <div class="feedbackMsg"></div>
+                    <div class="scroll">
+                        <table class="table table-responsive tbl_datatable" id="tbl_one_customer_accounts">
+                            <thead>
+                                <tr>
+                                    <th style="display: none;"> Id</th>
+                                    <th> Account Number </th>
+                                    <th> Account Balance</th>
+                                    <th> Status </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model) {
+                                        <tr>
+                                            <td style="display:none"> @Html.DisplayFor(modelItem => item.id) </td>                   
+                                            <td>@Html.DisplayFor(modelItem => item.account_number) </td>
+                                            <td> @Html.DisplayFor(modelItem => item.account_balance) </td>
+                                            <td>
+                                                @if (item.active == true)
+                                                {
+                                                    <label class="alert-info">Active </label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="alert-danger">In-active </label> 
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.active == true)
+                                                {
+                                                   <a class="nav-link danger text-dark deactivate_acc" href="javascript:;" ><span> Deactivate </span> </a>
+                                                }
+                                                else
+                                                {
+                                                     <a class="nav-link success text-dark activate_acc" href="javascript:;" ><span> Activate </span> </a>
+                                                } |
+
+                                                 <a class="nav-link danger text-dark delete_acc" href="javascript:;" ><span> Delete account </span> </a>
+                         
+                                            </td>
+                                        </tr>
+                                }
+                            </tbody>
+                        </table>
+                      </div>
+                       <a class="btn btn-primary pull-left" asp-controller="Home" asp-action="CustomersList"> << Back </a>
+                    </div>
+               </div>
+            </div>
+      </div>
+</section>
+

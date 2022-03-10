@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TovutiUI.Entities.SalesTransactions>
+
+@{
+    ViewData["Title"] = "GetSalesList";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="portlet light portlet-fit portlet-datatable bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-settings font-green"></i>
+            <span class="caption-subject font-green sbold uppercase"> All Customers List </span>
+        </div>
+    </div>
+    <br />
+     
+    <div class="portlet-body">
+        <p><a asp-controller="Home" asp-action="EnterSale">Create New</a></p>
+          <div class="form-body">
+              <div class="table-container">
+                  <div class="feedbackMsg"></div>
+                    <div class="scroll">
+                        <table class="table table-responsive tbl_datatable" id="tbl_sales_all">
+                            <thead>
+                                <tr>
+                                    <th style="display:none">id</th>
+                                    <th> Customer Id </th>
+                                    <th> product Amount </th>
+                                    <th> Transaction Date </th>
+                                    <th> Payment Mode </th>
+                                    <th> Price </th>
+                                    <th> Unit of Measurement </th>   
+                                    <th> Reversed </th>  
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model) {
+                                    <tr>
+                                        <td style="display:none">@Html.DisplayFor(modelItem => item.id) </td>
+                                        <td> @Html.DisplayFor(modelItem => item.customer_id)</td>
+                                        <td> @Html.DisplayFor(modelItem => item.product_amount) </td>
+                                        <td> @Html.DisplayFor(modelItem => item.transaction_date) </td>
+                                        <td> @Html.DisplayFor(modelItem => item.payment_mode) </td>
+                                        <td> @Html.DisplayFor(modelItem => item.price)  </td>
+                                        <td> @Html.DisplayFor(modelItem => item.unit_of_measurement) </td>
+                                        <td> @Html.DisplayFor(modelItem => item.reversed) </td>  
+                                        <td>
+                                            @Html.ActionLink("Generate Invoice", "CreateInvoicePage", new {  id=item.id  }) 
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+

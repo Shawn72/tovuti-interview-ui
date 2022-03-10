@@ -12,6 +12,7 @@ namespace TovutiUI.Entities
         public string payment_mode { get; set; }
         public decimal price { get; set; }
         public string unit_of_measurement { get; set; }
-        public Int64 invoice_id { get; set; }
+        public Int64 customer_id { get; set; }
+        public bool reversed { get; set; }
     }
 }

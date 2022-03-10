@@ -1,0 +1,72 @@
+﻿@model TovutiUI.Entities.SalesTransactions;
+@using System.Globalization;
+
+@{
+    ViewData["Title"] = "CreateInvoicePage";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    CultureInfo culture = new CultureInfo("en-US");
+}
+<section class="content container-fluid">  
+    <div class="portlet light portlet-fit portlet-datatable bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-settings font-green"></i>
+                <span class="caption-subject font-green sbold uppercase">GENERATE INVOICE PAGE</span>
+            </div>
+        </div>
+        <br />
+     
+        <div class="portlet-body">
+            <div class="form-body">  
+                <div class="table-container"> 
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                    <form class ="form_generate_invoice">                       
+                        <div class="form-group">
+                            <label class="control-label">Transaction ID</label>
+                            <input name="sale_trx_id" value="@Model.id" class="form-control" readonly />
+                        </div>
+
+                         <div class="form-group">
+                            <label  class="control-label">Customer Id</label>
+                            <input name="customer_id" value="@Model.customer_id" class="form-control" readonly />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Amount</label>
+                            <input name="amount"  value="@Model.product_amount" class="form-control numericsonly" type="number" readonly />
+                        </div>
+                         
+                        <div class="form-group">
+                            <label  class="control-label"> Transaction Date</label>
+                            <input name="transaction_date" id="trxDate" value="@DateTime.Parse(Model.transaction_date.ToString("dd/MM/yyyy"), culture.DateTimeFormat).ToShortDateString()" class="form-control" readonly />
+                        </div>
+            
+                        <div class="form-group">
+                            <label>Select Payment Terms ( in Days )</label>
+                            <select class="form-control ddlInvpayment_terms select2"  data_live_search="true" name="payment_terms" >
+                                <option value="0"  disabled selected > --- select terms --- </option> 
+                                <option value="30"   > 30 Days </option>  
+                                <option value="60"   > 60 Days </option>  
+                                <option value="90"   > 90 Days </option>  
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="control-label">Due Date</label>
+                            <input name="due_date" class="form-control" type="date" />                
+                        </div>
+           
+                        <div class="form-group">
+                            <input type="submit" value="Generate Invoice" class="btn btn-primary btnGenerateInvoice" />
+                            <a class="btn btn-primary pull-right" asp-controller="Home" asp-action="GetSalesList"> Back </a>           
+                        </div>                     
+                    </form>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

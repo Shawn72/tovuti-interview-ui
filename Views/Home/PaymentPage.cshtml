@@ -1,0 +1,71 @@
+﻿@model TovutiUI.Entities.Invoices
+@using System.Globalization;
+@{
+    ViewData["Title"] = "PaymentPage";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    var spacnt = " Days";
+    CultureInfo culture = new CultureInfo("en-US");
+}
+<section class="content container-fluid">  
+    <div class="portlet light portlet-fit portlet-datatable bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-settings font-green"></i>
+                <span class="caption-subject font-green sbold uppercase">GENERATE INVOICE PAGE</span>
+            </div>
+        </div>
+        <br />
+     
+        <div class="portlet-body">
+            <div class="form-body">  
+                <div class="table-container"> 
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <form class ="form_make_payment">            
+                            <div class="form-group">
+                                <label class="control-label">Invoice Id</label>
+                                <input name="invc_id" value="@Model.id" class="form-control" readonly />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Payment Terms</label>
+                                <input name="payment_terms" value="@Model.payment_terms@spacnt" class="form-control" readonly />
+                            </div>
+            
+                            <div class="form-group">
+                                <label class="control-label">Due Date</label>
+                                <input name="due_date" value="@DateTime.Parse(Model.due_date.ToString("dd/MM/yyyy"), culture.DateTimeFormat).ToShortDateString()" class="form-control" readonly />
+                            </div>
+                            <div class="form-group">
+                                <label  class="control-label">Invoice Total Amount</label>
+                                <input name="amount" value="@Model.amount" class="form-control" readonly />
+                            </div> 
+
+                            <div class="form-group">
+                                <label>Accounts List</label>
+                                 <select  class="form-control accountsDropdown select2"  name="account_id" asp-items="Model.List_Customers_Accounts">
+                                    <option value="0" disabled="disabled" > --- select account --- </option>                                          
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                 <label>Date Paid</label>
+                                <input type="date" name="date_paid"  class="form-control"  /> 
+                            </div>
+
+                             <div class="form-group">
+                                <label class="control-label">Amount to Pay</label>
+                                <input name="amount_paid" class="form-control numericsonly" placeholder="pay the amount shown on the invoice" />             
+                              </div>
+                            <div class="form-group">
+                                <input type="submit" value="Pay" class="btn btn-primary btnPayInvoice" />
+                                 <a class="btn btn-info pull-right" asp-controller="Home" asp-action="GetInvoicesList">Back to List</a>                  
+                            </div>
+                        </form>                    
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+        </div>
+   </div>
+</section>
+
